@@ -1,0 +1,30 @@
+{
+  "name": "recoge-def",
+  "displayName": "Recoge Def",
+  "description": "Recoge solo las funciones def y async def",
+  "version": "0.0.1",
+  "engines": { "vscode": "^1.75.0" },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      { "command": "recogeDef.recogerTodas", "title": "Recoge Def: recoger todas las funciones" },
+      { "command": "recogeDef.alternar", "title": "Recoge Def: abrir o recoger esta funcion" }
+    ],
+    "keybindings": [
+      { "command": "recogeDef.recogerTodas", "key": "ctrl+alt+f", "when": "editorTextFocus" },
+      { "command": "recogeDef.alternar", "key": "ctrl+8", "when": "editorTextFocus" }
+    ],
+    "configuration": {
+      "title": "Recoge Def",
+      "properties": {
+        "recogeDef.abiertas": {
+          "type": "string",
+          "default": "__init__",
+          "description": "Funciones que se quedan abiertas (con todo su interior), separadas por comas sin espacios. Ejemplo: __init__,run"
+        }
+      }
+    }
+  }
+}
